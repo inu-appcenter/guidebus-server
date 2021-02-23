@@ -1,42 +1,42 @@
 {
-    "name": "guidebus-server",
-    "version": "1.0.0",
-    "description": "INU guidebus API",
-    "main": "src/index.js",
-    "scripts": {
-        "start": "nodemon --exec babel-node src/index.js --delay 2"
-    },
-    "keywords": [
-        "INU",
-        "guidebus",
-        "INU guidebus"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/inu-appcenter/guidebus-server"
-    },
-    "license": "ISC",
-    "dependencies": {
-        "bcrypt": "5.0.0",
-        "cors": "2.8.5",
-        "dotenv": "8.2.0",
-        "express": "4.17.1",
-        "morgan": "1.10.0",
-        "mysql2": "2.2.5",
-        "winston": "3.3.3"
-    },
-    "devDependencies": {
-        "@babel/cli": "7.12.10",
-        "@babel/core": "7.12.10",
-        "@babel/node": "7.12.10",
-        "@babel/preset-env": "7.12.11",
-        "nodemon": "2.0.7"
-    },
-    "contributors": [
-        {
-            "name": "Heeyeon Kim",
-            "email": "heeeee0818@gamil.com",
-            "url": "https://github.com/HeeYeonKim98"
-        }
-    ]
+  "name": "guidebus-server",
+  "version": "1.0.0",
+  "description": "INU guidebus API",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node src/index.js --delay 2"
+  },
+  "keywords": [
+    "INU",
+    "guidebus",
+    "INU guidebus"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inu-appcenter/guidebus-server"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "5.0.0",
+    "cors": "2.8.5",
+    "dotenv": "8.2.0",
+    "express": "4.17.1",
+    "morgan": "1.10.0",
+    "mysql2": "2.2.5",
+    "winston": "3.3.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.12.10",
+    "@babel/core": "7.12.10",
+    "@babel/node": "7.12.10",
+    "@babel/preset-env": "7.12.11",
+    "nodemon": "2.0.7"
+  },
+  "contributors": [
+    {
+      "name": "Heeyeon Kim",
+      "email": "heeeee0818@gamil.com",
+      "url": "https://github.com/HeeYeonKim98"
+    }
+  ]
 }
