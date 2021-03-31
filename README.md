@@ -24,9 +24,11 @@ $ npm install
 $ touch .prettierrc
 ```
 
+### <br/>
+
 ### Commit Emoji
 
-|  commit emoji  |                   when to use it                   |
+|     emoji      |                   when to use it                   |
 | :------------: | :------------------------------------------------: |
 |   :sparkles:   |                  새로운 기능 추가                  |
 |     :bug:      |                     버그 수정                      |
