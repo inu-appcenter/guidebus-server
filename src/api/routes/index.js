@@ -5,4 +5,6 @@ export default () => {
   const app = Router();
 
   AdminRouter(app);
+
+  return app;
 };

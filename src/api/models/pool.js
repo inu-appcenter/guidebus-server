@@ -3,14 +3,13 @@ import config from "../../config/index";
 
 const pool = mysql.createPool({
   ...config.database,
-  connectionLimit: 10,
+  connectionLimit: 5,
   waitForConnections: true,
 });
 
-const executeQuery = (query, values) => {
+const executeQuery = async (query, values) =>
   new Promise(async (resolve, reject) => {
     let conn = await pool.getConnection();
-
     try {
       const sql = format(query, values);
       const [row] = await conn.execute(sql);
@@ -21,6 +20,4 @@ const executeQuery = (query, values) => {
       reject(error);
     }
   });
-};
-
 export default executeQuery;

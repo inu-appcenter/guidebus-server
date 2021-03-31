@@ -10,7 +10,7 @@ const Express = (app) => {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
-  app.use("/api", routes);
+  app.use("/api", routes());
 
   app.get("/", (req, res) => {
     res.send("<h1>Guidebus Server</h1>");
