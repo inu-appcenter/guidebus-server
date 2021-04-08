@@ -3,3 +3,6 @@
 
 # database
 .env
+
+#
+.DS_Store
