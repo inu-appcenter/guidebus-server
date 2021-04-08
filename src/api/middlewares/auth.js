@@ -1,11 +1,16 @@
 import jwt from "jsonwebtoken";
+
 import config from "../../config";
+import CODE from "../../modules/statusCode";
+import MSG from "../../modules/message";
+import Response from "../../modules/response";
 
 export default {
-  sign: async (req, res, next) => {
+  sign: async (req, res) => {
     try {
+      console.log("안녕?");
       req.token = jwt.sign({ admin: req.admin }, config.secret);
-      next();
+      return res.status(CODE.OK).json(Response.success(MSG.SIGN_IN, req.token));
     } catch (error) {
       Error(error);
     }

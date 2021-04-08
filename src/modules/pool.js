@@ -1,5 +1,5 @@
 import mysql, { format } from "mysql2/promise";
-import config from "../../config/index";
+import config from "../config/index";
 
 const pool = mysql.createPool({
   ...config.database,

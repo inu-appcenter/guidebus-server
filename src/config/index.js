@@ -12,7 +12,7 @@ const database = {
 };
 
 export default {
-  port: 9001,
+  port: process.env.SERVER_PORT,
   logs: {
     level: process.env.LOG_LEVEL || "silly",
   },

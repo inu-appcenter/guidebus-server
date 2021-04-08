@@ -8,9 +8,8 @@ const router = Router();
 const adminRouter = (app) => {
   app.use("/admin", router);
 
-  router.get("/", Controllers.Admin.login, Middlewares.Auth.sign, (req, res) => {
-    return res.status(200).json({ success: true, token: req.token });
-  });
+  router.post("/signin", Controllers.Admin.signin, Middlewares.Auth.sign);
+  router.post("/signup", Controllers.Admin.signup);
 };
 
 export default adminRouter;
