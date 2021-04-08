@@ -1,11 +1,14 @@
 import jwt from "jsonwebtoken";
+
 import config from "../../config";
+import CODE from "../../modules/statusCode";
+import Response from "../../modules/response";
 
 export default {
-  sign: async (req, res, next) => {
+  sign: async (req, res) => {
     try {
       req.token = jwt.sign({ admin: req.admin }, config.secret);
-      next();
+      return res.status(CODE.OK).json(Response.success("로그인에 성공하였습니다.", req.token));
     } catch (error) {
       Error(error);
     }

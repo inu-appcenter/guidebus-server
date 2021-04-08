@@ -1,18 +1,29 @@
 import AdminService from "../services/admin";
 
+import CODE from "../../modules/statusCode";
+import Response from "../../modules/response";
+
 export default {
-  login: async (req, res, next) => {
-    const { uId } = req.body;
+  signin: async (req, res, next) => {
+    const { uId, password } = req.body;
+
     try {
-      const data = await AdminService.loginByAdmin(uId);
-      req.admin = {
-        uId: data[0].uId,
-        password: data[0].password,
-      };
-      next();
+      const data = await AdminService.signin(uId, password);
+      if (data) next();
+      else return res.status(data.code).json(data.json);
     } catch (error) {
-      console.log(error.message);
-      next(error);
+      return res.status(CODE.SERVER_ERROR).json(Response.fail(error.message));
+    }
+  },
+
+  signup: async (req, res, next) => {
+    const { uId, password } = req.body;
+    try {
+      const data = await AdminService.signup(uId, password);
+      if (data !== undefined) return next();
+      else return res.status(202).json({ success: false, msg: "signup 실패" });
+    } catch (error) {
+      return res.status(CODE.SERVER_ERROR).json(Response.fail(error.message));
     }
   },
 };
