@@ -9,7 +9,6 @@ export default {
 
     try {
       const data = await AdminService.signin(uId, password);
-      console.log(data);
       if (!data.success) return res.status(data.code).json(data.json);
       else {
         req.admin = data;
