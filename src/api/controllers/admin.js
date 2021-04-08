@@ -9,19 +9,19 @@ export default {
 
     try {
       const data = await AdminService.signin(uId, password);
-      if (data) next();
+      if (data) return next();
       else return res.status(data.code).json(data.json);
     } catch (error) {
       return res.status(CODE.SERVER_ERROR).json(Response.fail(error.message));
     }
   },
 
-  signup: async (req, res, next) => {
+  signup: async (req, res) => {
     const { uId, password } = req.body;
+
     try {
-      const data = await AdminService.signup(uId, password);
-      if (data !== undefined) return next();
-      else return res.status(202).json({ success: false, msg: "signup 실패" });
+      const { code, json } = await AdminService.signup(uId, password);
+      return res.status(code).json(json);
     } catch (error) {
       return res.status(CODE.SERVER_ERROR).json(Response.fail(error.message));
     }
