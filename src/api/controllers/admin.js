@@ -9,8 +9,12 @@ export default {
 
     try {
       const data = await AdminService.signin(uId, password);
-      if (data) return next();
-      else return res.status(data.code).json(data.json);
+      console.log(data);
+      if (!data.success) return res.status(data.code).json(data.json);
+      else {
+        req.admin = data;
+        next();
+      }
     } catch (error) {
       return res.status(CODE.SERVER_ERROR).json(Response.fail(error.message));
     }

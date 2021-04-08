@@ -11,15 +11,11 @@ const adminService = {
     if (uId === undefined || password === undefined)
       return { code: CODE.NOT_FOUND, json: Response.fail(MSG.NOT_ENOUGH_VALUES) };
     else {
-      const [data] = await AdminModel.findById(uId);
-      if (!data) return { code: CODE.NOT_FOUND, json: Response.fail(MSG.INVALID_ID_PW) };
+      const data = await AdminModel.findById(uId);
+      if (data.length == 0) return { code: CODE.NOT_FOUND, json: Response.fail(MSG.INVALID_ID_PW) };
       else {
-        if (await bcrypt.compareSync(password, data.password)) {
-          req.admin = {
-            uId: data[0].uId,
-            password: data[0].password,
-          };
-          return true;
+        if (await bcrypt.compareSync(password, data[0].password)) {
+          return { success: true, uId: data[0].uId, password: data[0].password };
         } else return { code: CODE.NOT_FOUND, json: Response.fail(MSG.INVALID_ID_PW) };
       }
     }
