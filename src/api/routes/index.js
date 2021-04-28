@@ -1,13 +1,13 @@
 import { Router } from "express";
 
 import AdminRouter from "./admin";
-import BoardRouter from "./board";
+import PostRouter from "./post";
 
 export default () => {
   const app = Router();
 
   AdminRouter(app);
-  BoardRouter(app);
+  PostRouter(app);
 
   return app;
 };

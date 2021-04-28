@@ -1,7 +1,7 @@
 import Admin from "./admin";
-import Board from "./board";
+import Post from "./post";
 
 export default {
   Admin,
-  Board,
+  Post,
 };

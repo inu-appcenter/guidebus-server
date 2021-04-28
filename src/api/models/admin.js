@@ -1,10 +1,9 @@
-import Query from "../../config/query";
+import Query from "../../modules/query";
 import ExecuteQuery from "../../modules/pool";
 
 const AdminModel = {
   findById: async (uId) => {
-    const data = await ExecuteQuery(Query.SELECT_uId, uId);
-    return data;
+    return await ExecuteQuery(Query.SELECT_uId, uId);
   },
 
   insertAll: async (uId, password) => {
