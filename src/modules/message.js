@@ -1,5 +1,6 @@
 export default {
   NOT_ENOUGH_VALUES: "값이 충분하지 않습니다.",
+  DATABASE_ERROR: "데이터베이스 오류입니다.",
 
   /**
    * sign in
@@ -12,4 +13,9 @@ export default {
    */
   EXISTING_ID: "존재하는 아이디입니다.",
   SIGN_UP: "관리자 계정이 추가되었습니다.",
+
+  /**
+   * view
+   */
+  VIEW: "조회에 성공하였습니다.",
 };

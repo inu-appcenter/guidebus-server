@@ -31,7 +31,7 @@ const adminService = {
       else {
         const hashPassword = await bcrypt.hashSync(password, 10);
         await AdminModel.insertAll(uId, hashPassword);
-        return { code: CODE.OK, json: Response.success(MSG.SIGN_UP) };
+        return { code: CODE.CREATED, json: Response.success(MSG.SIGN_UP) };
       }
     }
   },
