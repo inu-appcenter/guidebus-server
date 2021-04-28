@@ -2,7 +2,7 @@ import Query from "../../modules/query";
 import ExecuteQuery from "../../modules/pool";
 
 const postModel = {
-  insertAll: async () => {
+  selectAll: async () => {
     return await ExecuteQuery(Query.SELECT_all);
   },
 };

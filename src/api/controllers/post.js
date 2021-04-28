@@ -9,14 +9,14 @@ import Response from "../../modules/response";
 
 export default {
   view: async (req, res) => {
-    const {} = req.body;
     try {
-      const { code, json } = postService();
+      const { code, json } = await postService.view();
       return res.status(code).json(json);
     } catch (error) {
       return res.status(CODE.SERVER_ERROR).json(Response.fail(error.message));
     }
   },
+
   insert: async (req, res) => {},
   update: async (req, res) => {},
   delete: async (req, res) => {},

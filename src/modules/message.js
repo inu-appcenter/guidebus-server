@@ -17,5 +17,5 @@ export default {
   /**
    * view
    */
-  VIEW: "조회 성공",
+  VIEW: "조회에 성공하였습니다.",
 };
