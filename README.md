@@ -1,7 +1,5 @@
 # 🚍 INU Guide Bus
 
-작성중
-
 ## 🚌 Directory
 
 ```
