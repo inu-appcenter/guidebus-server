@@ -11,13 +11,13 @@ import Response from "../../modules/response";
 const postService = {
   view: async () => {
     const data = await postModel.selectAll();
-    if (!data) return { code: CODE.SERVER_ERROR, json: Response.fail(MSG.DATABASE_ERROR) };
+    if (!data)
+      return {
+        code: CODE.SERVER_ERROR,
+        json: Response.fail(MSG.DATABASE_ERROR),
+      };
     else return { code: CODE.OK, json: Response.success(MSG.VIEW, data) };
   },
-
-  insert: async () => {},
-  update: async () => {},
-  delete: async () => {},
 };
 
 export default postService;

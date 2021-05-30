@@ -9,21 +9,36 @@ import Response from "../../modules/response";
 const adminService = {
   signin: async (uId, password) => {
     if (uId === undefined || password === undefined)
-      return { code: CODE.NOT_FOUND, json: Response.fail(MSG.NOT_ENOUGH_VALUES) };
+      return {
+        code: CODE.NOT_FOUND,
+        json: Response.fail(MSG.NOT_ENOUGH_VALUES),
+      };
     else {
       const data = await AdminModel.findById(uId);
-      if (data.length == 0) return { code: CODE.NOT_FOUND, json: Response.fail(MSG.INVALID_ID_PW) };
+      if (data.length == 0)
+        return { code: CODE.NOT_FOUND, json: Response.fail(MSG.INVALID_ID_PW) };
       else {
         if (await bcrypt.compareSync(password, data[0].password)) {
-          return { success: true, uId: data[0].uId, password: data[0].password };
-        } else return { code: CODE.NOT_FOUND, json: Response.fail(MSG.INVALID_ID_PW) };
+          return {
+            success: true,
+            uId: data[0].uId,
+            password: data[0].password,
+          };
+        } else
+          return {
+            code: CODE.NOT_FOUND,
+            json: Response.fail(MSG.INVALID_ID_PW),
+          };
       }
     }
   },
 
   signup: async (uId, password) => {
     if (uId === undefined || password === undefined)
-      return { code: CODE.NOT_FOUND, json: Response.fail(MSG.NOT_ENOUGH_VALUES) };
+      return {
+        code: CODE.NOT_FOUND,
+        json: Response.fail(MSG.NOT_ENOUGH_VALUES),
+      };
     else {
       const idData = await AdminModel.findById(uId);
       if (idData.length !== 0)
