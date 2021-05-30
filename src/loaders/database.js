@@ -1,8 +1,18 @@
-import DB from "mysql2/promise";
+import mysql from "mysql2/promise";
 
 import config from "../config";
 
 const Database = async () => {
+  const connDatabase = await mysql.createConnection(config.database);
+  await connDatabase.execute(
+    `CREATE DATABASE IF NOT EXISTS ${config.db_schema}`
+  );
+  await connDatabase.end();
+
+  const connTable = await mysql.createConnection({
+    ...config.database,
+    database: config.db_schema,
+  });
   const tables = [
     `
     create table if not exists admin(
@@ -16,6 +26,9 @@ const Database = async () => {
     )
     `,
   ];
+
+  await Promise.all(tables.map((value) => connTable.execute(value)));
+  await connTable.end();
 };
 
 export default Database;

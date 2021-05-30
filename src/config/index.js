@@ -18,4 +18,5 @@ export default {
   },
   secret: process.env.JWT_SECRET,
   database,
+  db_schema: process.env.DB_SCHEMA,
 };
