@@ -1,0 +1,21 @@
+{
+  "swagger": "2.0",
+  "host": "",
+  "basePath": "/api",
+  "schemes": ["http", "https"],
+  "info": {
+    "title": "Guidebus API",
+    "version": "1.0.0",
+    "description": "Guidebus REST API 입니다."
+  },
+  "tags": [],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/admin": {
+      "post": {
+        "summary": "관리자"
+      }
+    }
+  }
+}
