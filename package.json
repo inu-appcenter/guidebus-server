@@ -4,7 +4,7 @@
   "description": "INU guidebus API",
   "main": "src/index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node src/index.js --delay 2"
+    "dev": "nodemon --exec babel-node src/index.js --delay 2"
   },
   "keywords": [
     "INU",
